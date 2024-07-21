@@ -33,6 +33,9 @@ body {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     text-align: center;
     position: relative;
+    width: 80vw; /* Increased width to accommodate more space */
+    max-width: 800px; /* Maximum width for large screens */
+    overflow: auto; /* Allow scrolling if needed */
     animation: fadeIn 2s ease-out;
 }
 
@@ -51,6 +54,8 @@ pre {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: textGlow 1.5s ease-in-out infinite;
+    max-height: 300px; /* Restrict height to allow scrolling if message is too long */
+    overflow-y: auto; /* Add vertical scrollbar if content exceeds max-height */
 }
 
 /* Hidden Class */
@@ -63,12 +68,15 @@ pre {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute; /* Position relative to the container */
+    bottom: 20px; /* Place it at the bottom of the container */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Heart Styles */
 .heart {
     font-size: 80px; /* Larger heart emoji */
-    margin: 20px auto;
     cursor: pointer;
     color: var(--heart-color); /* Deep pink color */
     animation: heartbeat 1.5s infinite, glow 1.5s ease-in-out infinite;
