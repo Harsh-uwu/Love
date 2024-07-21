@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Beautiful Baby</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Fireworks.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.1.0/dist/fireworks.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <pre id="message" class="hidden">
+/**
+ *THE CODE OF LOVE
+ */
+Hey Girl !
+Do you remember the day we first met? I know you don't but I do! 
+// in the mall heheee
+Since that day, a spark began;
+// Your face, Your Voice, Your Words.
+Your everything got imprinted in my heart;
+As time went on;
+The Bond grew stronger and stronger;
+Journey from Infatuation to Love;
+We have traveled a long way together;
+There have been fights;
+// And I'm sure there will be more.
+But our Bond will always grow back Stronger;
+All I want to say is:
+Baby, I love you and I will love you forever;
+Now if you want to hug me you can touch the heart below
+and yes you know what I can also do things like this hmphhhhh....
+        </pre>
+        <div id="heart-container" class="heart-container hidden">
+            <div class="heart" onclick="showMarriedMessage()">❤️</div>
+            <p>Click on this heart to get a surprise but in the end !</p>
+        </div>
+        <div id="marriedMessage" class="married-message">
+            <p>You're married now!</p>
+        </div>
+    </div>
+
+    <script>
+        function typeEffect(element, speed) {
+            const text = element.innerHTML;
+            element.innerHTML = '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, text.charAt(i - 1) === ' ' ? speed / 2 : speed);
+                } else {
+                    document.getElementById('heart-container').classList.remove('hidden');
+                }
+            }
+            type();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const messageElement = document.getElementById('message');
+            messageElement.classList.remove('hidden');
+            typeEffect(messageElement, 50); // Adjust speed as needed
+        });
+
+        function showMarriedMessage() {
+            document.getElementById('marriedMessage').style.display = 'flex'; // Show the message
+            launchFireworks(); // Launch fireworks
+        }
+
+        function launchFireworks() {
+            const fireworks = new Fireworks(document.body, {
+                // Fireworks.js configuration options
+                acceleration: 1.05,
+                friction: 0.98,
+                gravity: 1,
+                particles: 100,
+                explosionChance: 0.5,
+                colors: ['#ff69b4', '#ff1493', '#e74c3c']
+            });
+            fireworks.start();
+
+            // Remove the fireworks after a few seconds
+            setTimeout(() => {
+                fireworks.stop();
+            }, 5000); // Fireworks duration
+        }
+    </script>
+</body>
+</html>

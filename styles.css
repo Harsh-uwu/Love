@@ -1,0 +1,167 @@
+/* CSS Variables for Color Scheme */
+:root {
+    --main-bg-color: #fff0f5; /* Lavender blush */
+    --container-bg: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    --text-color: #ff1493; /* Deep pink */
+    --text-glow: #ff69b4; /* Hot pink */
+    --heart-color: #ff1493; /* Deep pink */
+    --heart-hover-color: #ff69b4; /* Hot pink */
+    --message-bg: rgba(255, 228, 225, 0.9); /* Light pink */
+}
+
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--main-bg-color); /* Background color */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/09/08/background-1867098_960_720.jpg'); /* Romantic background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Container Styles */
+.container {
+    background-color: var(--container-bg); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Preformatted Text Styles */
+pre {
+    font-size: 22px;
+    font-family: 'Times New Roman', serif; /* Elegant font style */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+    color: var(--text-color); /* Deep pink text */
+    margin-bottom: 20px;
+    line-height: 1.8;
+    background-color: rgba(255, 240, 245, 0.8); /* Light pink background for text */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: textGlow 1.5s ease-in-out infinite;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Heart Container Styles */
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heart Styles */
+.heart {
+    font-size: 80px; /* Larger heart emoji */
+    margin: 20px auto;
+    cursor: pointer;
+    color: var(--heart-color); /* Deep pink color */
+    animation: heartbeat 1.5s infinite, glow 1.5s ease-in-out infinite;
+    transition: transform 0.1s ease; /* Smooth transition for click effect */
+}
+
+/* Heart Click Effect */
+.heart:active {
+    transform: scale(0.9); /* Slightly shrink the heart on click */
+}
+
+/* Heart Hover Effect */
+.heart:hover {
+    color: var(--heart-hover-color); /* Change to hot pink on hover */
+}
+
+/* Keyframes for Animations */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px var(--heart-color), 0 0 20px var(--heart-color), 0 0 30px var(--heart-color), 0 0 40px var(--heart-color);
+    }
+    50% {
+        text-shadow: 0 0 15px var(--text-glow), 0 0 25px var(--text-glow), 0 0 35px var(--text-glow), 0 0 45px var(--text-glow);
+    }
+    100% {
+        text-shadow: 0 0 10px var(--heart-color), 0 0 20px var(--heart-color), 0 0 30px var(--heart-color), 0 0 40px var(--heart-color);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        color: var(--text-glow);
+    }
+    50% {
+        color: var(--heart-color);
+    }
+    100% {
+        color: var(--text-glow);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Married Message Styles */
+.married-message {
+    display: none; /* Hide initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--message-bg); /* Light pink background with transparency */
+    padding: 40px;
+    border-radius: 20px;
+    font-size: 2.5em;
+    color: var(--heart-color); /* Deep pink text */
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Ensure on top */
+    animation: fadeIn 2s ease-out;
+    font-family: 'Lucida Handwriting', cursive; /* Romantic cursive font */
+    border: 2px solid var(--heart-color); /* Deep pink border */
+    background: radial-gradient(circle, rgba(255, 240, 245, 0.8) 0%, rgba(255, 228, 225, 0.9) 100%); /* Radial gradient background */
+}
+
+/* Additional Romantic Touches */
+@keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.married-message::before {
+    content: '💖';
+    font-size: 4em;
+    display: block;
+    margin-bottom: 20px;
+    animation: sparkle 1.5s infinite;
+}
